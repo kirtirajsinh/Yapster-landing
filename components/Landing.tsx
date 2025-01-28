@@ -2,29 +2,63 @@
 import { useState, useEffect } from "react";
 import AddFrame from "./AddFrame";
 
+const useResponsiveValues = () => {
+  const [screenSize, setScreenSize] = useState({
+    width: 1024, // Default to desktop
+    isMobile: false,
+    isTablet: false,
+  });
+
+  useEffect(() => {
+    // Function to update values based on matchMedia
+    const updateSize = () => {
+      const mobile = matchMedia("(max-width: 639px)").matches;
+      const tablet = matchMedia(
+        "(min-width: 640px) and (max-width: 1023px)"
+      ).matches;
+
+      setScreenSize({
+        width: mobile ? 300 : tablet ? 600 : 1024,
+        isMobile: mobile,
+        isTablet: tablet,
+      });
+    };
+
+    // Initial update
+    updateSize();
+
+    // Create MediaQueryList objects
+    const mobileQuery = matchMedia("(max-width: 639px)");
+    const tabletQuery = matchMedia(
+      "(min-width: 640px) and (max-width: 1023px)"
+    );
+
+    // Event listener callback
+    const handleChange = () => updateSize();
+
+    // Add listeners
+    mobileQuery.addListener(handleChange);
+    tabletQuery.addListener(handleChange);
+
+    // Cleanup
+    return () => {
+      mobileQuery.removeListener(handleChange);
+      tabletQuery.removeListener(handleChange);
+    };
+  }, []);
+
+  return screenSize;
+};
+
 export default function Home() {
+  const { width, isMobile } = useResponsiveValues();
   const [activeIndex, setActiveIndex] = useState(0);
   const [totalYaps, setTotalYaps] = useState(1000);
 
-  // Adjust number of Yaps based on screen size
+  // Update totalYaps based on screen size
   useEffect(() => {
-    const handleResize = () => {
-      if (typeof window !== "undefined") {
-        const width = window.innerWidth;
-        if (width < 640) {
-          setTotalYaps(300);
-        } else if (width < 1024) {
-          setTotalYaps(600);
-        } else {
-          setTotalYaps(1000);
-        }
-      }
-    };
-
-    handleResize(); // Initial call
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    setTotalYaps(isMobile ? 300 : width < 1024 ? 600 : 1000);
+  }, [width, isMobile]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,22 +75,20 @@ export default function Home() {
       <div className="absolute flex flex-wrap w-full overflow-hidden">
         {Array.from({ length: totalYaps }).map((_, i) => {
           const randomMarginLeft =
-            Math.random() * (window.innerWidth < 640 ? 10 : 20) -
-            (window.innerWidth < 640 ? 5 : 10);
+            Math.random() * (isMobile ? 10 : 20) - (isMobile ? 5 : 10);
           const randomMarginTop =
-            Math.random() * (window.innerWidth < 640 ? 10 : 20) -
-            (window.innerWidth < 640 ? 5 : 10);
+            Math.random() * (isMobile ? 10 : 20) - (isMobile ? 5 : 10);
 
           return (
             <div
               key={i}
               className={`text-white text-2xl md:text-3xl lg:text-4xl font-bold transition-opacity duration-500 ease-in-out ${
-                i === activeIndex ? "opacity-100 sclae-105" : "opacity-10"
+                i === activeIndex ? "opacity-100 scale-105" : "opacity-10"
               }`}
               style={{
                 marginLeft: `${randomMarginLeft}px`,
                 marginTop: `${randomMarginTop}px`,
-                fontSize: window.innerWidth < 640 ? "1rem" : undefined,
+                fontSize: isMobile ? "1rem" : undefined,
               }}
             >
               Yap
@@ -66,8 +98,8 @@ export default function Home() {
       </div>
 
       {/* Center content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 ">
-        <h1 className="text-4xl sm:text-6xl  font-bold bg-clip-text text-transparent bg-white">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-white">
           spaces on farcaster for you to <br /> yap
         </h1>
         <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-300">

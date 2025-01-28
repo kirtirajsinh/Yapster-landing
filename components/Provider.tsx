@@ -35,7 +35,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
       setIsSDKLoaded(true);
       load();
     }
-  }, [isSDKLoaded]);
+  }, [isSDKLoaded, setUser]);
   return (
     <div>
       {children}
