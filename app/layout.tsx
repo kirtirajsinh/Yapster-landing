@@ -10,11 +10,6 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-const appUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://yapster.fun"
-    : "https://msi-1.tail6cd562.ts.net";
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Yapster",
@@ -33,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Yapster",
       description: "Yap it. meme it. pump it",
-      url: appUrl,
+      url: "https://yapster.fun",
       siteName: "Yapster",
       images: [
         {
@@ -54,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
           action: {
             type: "launch_frame",
             name: "Yapster",
-            url: `${appUrl}`,
+            url: `https://yapster.fun`,
             splashImageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/tinylogo.svg`,
             splashBackgroundColor: "#000000",
           },

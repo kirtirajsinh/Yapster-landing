@@ -13,9 +13,12 @@ import { sendFrameNotification } from "@/lib/notifs";
 export async function POST(request: NextRequest) {
     const requestJson = await request.json();
 
+    console.log(requestJson, "request json");
+
     let data;
     try {
         data = await parseWebhookEvent(requestJson, verifyAppKeyWithNeynar);
+        console.log(data, "parsed webhook event");
     } catch (e: unknown) {
         const error = e as ParseWebhookEvent.ErrorType;
 
@@ -45,17 +48,21 @@ export async function POST(request: NextRequest) {
     const fid = data.fid;
     const event = data.event;
 
+    console.log(event, "event");
+
     switch (event.event) {
         case "frame_added":
             if (event.notificationDetails) {
                 await setUserNotificationDetails(fid, event.notificationDetails);
-                await sendFrameNotification({
+                const addNotif = await sendFrameNotification({
                     fid,
                     title: "Welcome,now you got a space to Yap",
                     body: "You'll be notified when we have updates",
                 });
+                console.log(addNotif, "addNotif");
             } else {
-                await deleteUserNotificationDetails(fid);
+                const removeNotif = await deleteUserNotificationDetails(fid);
+                console.log(removeNotif, "removeNotif");
             }
 
             break;
