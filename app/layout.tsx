@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
             type: "launch_frame",
             name: "Yapster",
             url: `${appUrl}/`,
-            splashImageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/logo.svg`,
+            splashImageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/icon.svg`,
             splashBackgroundColor: "#131313",
           },
         },
