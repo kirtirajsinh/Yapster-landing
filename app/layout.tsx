@@ -23,6 +23,32 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Yapster",
     description: "Yap it. meme it. pump it",
+    applicationName: "Yapster",
+    authors: [{ name: "Yapster", url: "https://yapster.fun" }],
+    keywords: [
+      "yapster",
+      "yapping",
+      "memes",
+      "yapster.fun",
+      "Crypto app",
+      "memecoin",
+      "meme coin app",
+    ],
+    openGraph: {
+      title: "Yapster",
+      description: "Yap it. meme it. pump it",
+      url: appUrl,
+      siteName: "Yapster",
+      images: [
+        {
+          url: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.svg",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
     other: {
       "fc:frame": JSON.stringify({
         version: "next",
