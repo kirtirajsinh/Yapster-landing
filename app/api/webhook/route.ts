@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
                 await setUserNotificationDetails(fid, event.notificationDetails);
                 await sendFrameNotification({
                     fid,
-                    title: "Welcome,now you got space to Yap",
+                    title: "Welcome,now you got a space to Yap",
                     body: "You'll be notified when we have updates",
                 });
             } else {

@@ -22,6 +22,7 @@ const AddFrame = () => {
       } else {
         toast.error("Error adding frame");
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
       toast.error("Error adding frame");
@@ -34,7 +35,7 @@ const AddFrame = () => {
       onClick={() => handleClick()}
       disabled={loading}
     >
-      {loading ? "saving..." : "Save to Join Waitlist"}
+      Save to Join Waitlist
     </button>
   );
 };
