@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
 import dynamic from "next/dynamic";
 const Provider = dynamic(() => import("@/components/Provider"));
+import { Manrope } from "next/font/google";
+
+const manrope = Manrope({
+  variable: "--font-jersey-10",
+  subsets: ["latin"],
+});
 
 const appUrl =
   process.env.NODE_ENV === "production"
     ? "https://yapster.fun"
     : "https://msi-1.tail6cd562.ts.net";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -52,15 +48,15 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       "fc:frame": JSON.stringify({
         version: "next",
-        imageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.svg`,
+        imageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newimage.svg`,
         button: {
           title: "Start Yapping",
           action: {
             type: "launch_frame",
             name: "Yapster",
             url: `${appUrl}/`,
-            splashImageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/icon.svg`,
-            splashBackgroundColor: "#131313",
+            splashImageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newlogo.svg`,
+            splashBackgroundColor: "#000000",
           },
         },
       }),
@@ -75,9 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${manrope.variable} font-manrope antialiased`}>
         <Provider>{children}</Provider>
       </body>
     </html>

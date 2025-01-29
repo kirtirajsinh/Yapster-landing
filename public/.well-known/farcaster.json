@@ -7,12 +7,12 @@
   "frame": {
     "version": "1",
     "name": "Yapster",
-    "iconUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/icon.svg",
+    "iconUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newlogo.svg",
     "homeUrl": "https://yapster.fun",
-    "imageUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.svg",
+    "imageUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newimage.svg",
     "buttonTitle": "Start Yapping",
-    "splashImageUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/icon.svg",
-    "splashBackgroundColor": "#eeccff",
+    "splashImageUrl": "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newlogo.svg",
+    "splashBackgroundColor": "#000000",
     "webhookUrl": "https://yapster.fun/api/webhook"
 }
 }

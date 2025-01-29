@@ -29,7 +29,11 @@ const AddFrame = () => {
     }
   };
   return (
-    <button className="" onClick={() => handleClick()} disabled={loading}>
+    <button
+      className="mt-6 px-6 py-3 text-lg font-bold text-white rounded-lg bg-gradient-to-r from-black via-green-700 to-green-500 shadow-lg shadow-green-900 transition-transform transform hover:scale-105 hover:shadow-green-500  "
+      onClick={() => handleClick()}
+      disabled={loading}
+    >
       {loading ? "saving..." : "Save to Join Waitlist"}
     </button>
   );

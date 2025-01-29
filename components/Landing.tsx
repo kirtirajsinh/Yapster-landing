@@ -57,7 +57,7 @@ export default function Home() {
 
   // Update totalYaps based on screen size
   useEffect(() => {
-    setTotalYaps(isMobile ? 300 : width < 1024 ? 600 : 1000);
+    setTotalYaps(isMobile ? 400 : width < 1024 ? 600 : 1000);
   }, [width, isMobile]);
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function Home() {
         <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-white">
           spaces on farcaster for you to <br /> yap
         </h1>
-        <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-300">
+        <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-300 font-semibold">
           yap it. meme it. pump it.
         </p>
         <AddFrame />
