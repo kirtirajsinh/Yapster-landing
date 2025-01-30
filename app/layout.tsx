@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Yapster",
       images: [
         {
-          url: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.svg",
+          url: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/newimage.svg",
           width: 1200,
           height: 630,
         },
