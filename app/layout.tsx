@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Yapster",
       images: [
         {
-          url: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.png",
+          url: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/imagesmaller.png",
           width: 1200,
           height: 630,
         },
@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       "fc:frame": JSON.stringify({
         version: "next",
-        imageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.png`,
+        imageUrl: `https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/imagesmaller.png`,
         button: {
           title: "Start Yapping",
           action: {

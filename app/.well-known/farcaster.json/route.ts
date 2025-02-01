@@ -1,4 +1,5 @@
 export async function GET() {
+
     const config = {
         accountAssociation: {
             header: "eyJmaWQiOjY4NjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhBNTkzMUE3MjZDRUNjYTA1N0EzRkY0M0E4NDg4MzQ2NjI2MDQ3OEI0In0",
@@ -10,7 +11,7 @@ export async function GET() {
             name: "Yapster",
             iconUrl: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/logo.png",
             homeUrl: "https://yapster.fun",
-            imageUrl: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/image.png",
+            imageUrl: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/imagesmaller.png",
             buttonTitle: "Start Yapping",
             splashImageUrl: "https://pub-b8acacbdf4c34874a29a2fdaab996f29.r2.dev/logo.png",
             splashBackgroundColor: "#000000",
